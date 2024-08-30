@@ -12,6 +12,7 @@ import tech.ada.poo.base.servico.biblioteca.service.BibliotecaServiceVirtualImpl
 
         public class MainBiblioteca {
             public static void main(String[] args) {
+
                 Scanner scanner = new Scanner(System.in);
                 BibliotecaRepositorio repositorio = new BibliotecaRepositorioListImpl();
                 BibliotecaService service = new BibliotecaServiceImpl(repositorio);
@@ -69,6 +70,6 @@ import tech.ada.poo.base.servico.biblioteca.service.BibliotecaServiceVirtualImpl
     // reservar
     String titulo = r2.getTitulo();
     String reserva = bibServiceFisica.reservar(titulo);
-        System.out.println( "reserva " + reserva  );
+        System.out.println( "reserva " + reserva  ); //
 
 }
