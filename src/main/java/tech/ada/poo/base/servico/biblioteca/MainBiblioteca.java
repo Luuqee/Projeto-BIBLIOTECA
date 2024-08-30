@@ -42,34 +42,7 @@ import tech.ada.poo.base.servico.biblioteca.service.BibliotecaServiceVirtualImpl
                         System.out.println("Opção inválida. Tente novamente.");
                     }
                 }
-
                 scanner.close();
             }
         }
-
-    }
-
-    // instanciando interfaces de servico e injetando repositorio nelas
-    BibliotecaRepositorio repositorio = new BibliotecaRepositorioListImpl();
-    BibliotecaServiceFisica bibServiceFisica = new BibliotecaServiceFisicaImpl(repositorio);
-    BibliotecaServiceVirtual bibServiceVirtual = new BibliotecaServiceVirtualImpl(repositorio);
-
-    // livros
-    ItemCatalogo labc = new Livro("livro abc");
-    ItemCatalogo lalmanaque = new Livro("almanaque carros");
-
-    // cadastro e consulta
-        bibServiceFisica.cadastrar( labc );
-    ItemCatalogo r1 = bibServiceFisica.consultar( "livro abs" );
-    ItemCatalogo r2 = bibServiceFisica.consultar( "livro abc" );
-        System.out.println(r1 + " "+ r2);
-
-    // cadastro existente
-    // TODO implementar cenario
-
-    // reservar
-    String titulo = r2.getTitulo();
-    String reserva = bibServiceFisica.reservar(titulo);
-        System.out.println( "reserva " + reserva  ); //
-
 }
