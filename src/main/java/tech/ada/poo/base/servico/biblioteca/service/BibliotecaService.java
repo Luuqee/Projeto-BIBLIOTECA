@@ -4,6 +4,7 @@ import tech.ada.poo.base.servico.biblioteca.model.ItemCatalogo;
 
 public interface BibliotecaService {
 
+    void cadastrarLivro(Livro livro);
     String reservar(String titulo);
     ItemCatalogo consultar(String titulo);
 

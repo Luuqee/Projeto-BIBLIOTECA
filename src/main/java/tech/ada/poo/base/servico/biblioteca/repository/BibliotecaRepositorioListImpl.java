@@ -18,8 +18,6 @@ public class BibliotecaRepositorioListImpl implements BibliotecaRepositorio {
         return item;
     }
 
-    // TODO melhorar para usar o Optional ao inves de null
-    // exemplo: Optional.of(obj) .. Optional.empty()
     @Override
     public ItemCatalogo consultar(String titulo) {
         if (this.itens == null || itens.isEmpty()) return null;
@@ -28,6 +26,13 @@ public class BibliotecaRepositorioListImpl implements BibliotecaRepositorio {
                 return item;
         }
         return null;
+    }
+
+    private List<Livro> livros = new ArrayList<>();
+
+    @Override
+    public void salvar(Livro livro) {
+        livros.add(livro);
     }
 
     @Override

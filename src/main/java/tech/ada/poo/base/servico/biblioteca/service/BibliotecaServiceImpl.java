@@ -5,7 +5,7 @@ import tech.ada.poo.base.servico.biblioteca.repository.BibliotecaRepositorio;
 
 public abstract class BibliotecaServiceImpl implements BibliotecaService {
 
-    protected BibliotecaRepositorio repositorio;
+    private final BibliotecaRepositorio repositorio;
 
     public void setRepositorio(BibliotecaRepositorio repositorio) {
         this.repositorio = repositorio;
@@ -15,6 +15,17 @@ public abstract class BibliotecaServiceImpl implements BibliotecaService {
     public ItemCatalogo consultar(String titulo) {
         return repositorio.consultar(titulo);
     }
+
+    public BibliotecaServiceImpl(BibliotecaRepositorio repositorio) {
+        this.repositorio = repositorio;
+    }
+
+    @Override
+    public void cadastrarLivro(Livro livro) {
+        repositorio.salvar(livro);
+        System.out.println("Livro cadastrado com sucesso: " + livro.getTitulo());
+    }
+
 
     @Override
     public String reservar(String titulo) {

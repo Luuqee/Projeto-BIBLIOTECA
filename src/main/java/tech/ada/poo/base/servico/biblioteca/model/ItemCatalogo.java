@@ -6,9 +6,6 @@ public abstract class ItemCatalogo {
 
     private String titulo;
 
-    // como ficaria o design para gerenciar 3 estados
-    // .. reserva, emprestimo, devolvido?
-    // e se tivesse 15 estados diferentes vc criaria 15 atributos, um para cada?
     private String reserva;
 
     @Override
