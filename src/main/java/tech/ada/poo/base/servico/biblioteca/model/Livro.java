@@ -1,49 +1,51 @@
 package tech.ada.poo.base.servico.biblioteca.model;
 
-public class Livro extends ItemCatalogo {
-
-    public Livro (String titulo) {
-        super.setTitulo(titulo);
-    }
+public class Livro extends tech.ada.poo.base.servico.biblioteca.model.ItemCatalogo {
 
     public class Livro {
         private String titulo;
         private String autor;
+        private boolean emprestado;
+        private String nomeDoEmprestador;
+        private String dataDeEmprestimo;
 
+        // Construtor
         public Livro(String titulo, String autor) {
             this.titulo = titulo;
             this.autor = autor;
+            this.emprestado = false;
         }
 
-        public class Livro {
-            private String titulo;
-            private String autor;
+        // Getters e Setters
+        public String getTitulo() {
+            return titulo;
+        }
 
-            // Construtor
-            public Livro(String titulo, String autor) {
-                this.titulo = titulo;
-                this.autor = autor;
-            }
+        public String getAutor() {
+            return autor;
+        }
 
-            // Getter para título
-            public String getTitulo() {
-                return titulo;
-            }
+        public boolean isEmprestado() {
+            return emprestado;
+        }
 
-            // Setter para título
-            public void setTitulo(String titulo) {
-                this.titulo = titulo;
-            }
+        public void setEmprestado(boolean emprestado) {
+            this.emprestado = emprestado;
+        }
 
-            // Getter para autor
-            public String getAutor() {
-                return autor;
-            }
+        public String getNomeDoEmprestador() {
+            return nomeDoEmprestador;
+        }
 
-            // Setter para autor
-            public void setAutor(String autor) {
-                this.autor = autor;
-            }
+        public void setNomeDoEmprestador(String nomeDoEmprestador) {
+            this.nomeDoEmprestador = nomeDoEmprestador;
+        }
+
+        public String getDataDeEmprestimo() {
+            return dataDeEmprestimo;
+        }
+
+        public void setDataDeEmprestimo(String dataDeEmprestimo) {
+            this.dataDeEmprestimo = dataDeEmprestimo;
         }
     }
-}

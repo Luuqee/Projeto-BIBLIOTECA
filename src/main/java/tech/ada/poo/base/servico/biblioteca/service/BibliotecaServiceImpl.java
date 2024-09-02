@@ -11,7 +11,6 @@ public abstract class BibliotecaServiceImpl implements BibliotecaService {
         this.repositorio = repositorio;
     }
 
-    @Override
     public ItemCatalogo consultar(String titulo) {
         return repositorio.consultar(titulo);
     }

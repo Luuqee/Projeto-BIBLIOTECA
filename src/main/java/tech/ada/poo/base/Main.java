@@ -5,47 +5,45 @@ import java.util.Scanner;
 public class MainBiblioteca {
 
     public static void main(String[] args) {
-        BibliotecaRepositorio repositorio = new BibliotecaRepositorioListImpl();
-        BibliotecaService servico = new BibliotecaServiceImpl(repositorio);
-
         Scanner scanner = new Scanner(System.in);
-        int opcao = -1;
+        BibliotecaServico servico = new BibliotecaServico();
 
-        while (opcao != 0) {
-            System.out.println("Menu:");
+        while (true) {
             System.out.println("1. Cadastrar Livro");
-            System.out.println("2. Listar Livros");
-            System.out.println("0. Sair");
-            System.out.print("Escolha uma opção: ");
-            opcao = scanner.nextInt();
-            scanner.nextLine(); // Para capturar a nova linha
+            System.out.println("2. Consultar Livro");
+            System.out.println("3. Emprestar Livro");
+            System.out.println("4. Sair");
+            int opcao = scanner.nextInt();
+            scanner.nextLine();  // Limpa o buffer
 
-            switch (opcao) {
-                case 1:
-                    System.out.print("Digite o título do livro: ");
-                    String titulo = scanner.nextLine();
-                    System.out.print("Digite o autor do livro: ");
-                    String autor = scanner.nextLine();
-
-                    Livro livro = new Livro(titulo, autor);
-                    servico.cadastrarLivro(livro);
-                    System.out.println("Livro cadastrado com sucesso!");
-                    break;
-                case 2:
-                    System.out.println("Livros cadastrados:");
-                    for (Livro l : repositorio.listarTodos()) {
-                        System.out.println("Título: " + l.getTitulo() + ", Autor: " + l.getAutor());
-                    }
-                    break;
-                case 0:
-                    System.out.println("Saindo...");
-                    break;
-                default:
-                    System.out.println("Opção inválida! Tente novamente.");
-                    break;
+            if (opcao == 1) {
+                System.out.println("Digite o título do livro:");
+                String titulo = scanner.nextLine();
+                System.out.println("Digite o autor do livro:");
+                String autor = scanner.nextLine();
+                servico.cadastrar(new Livro(titulo, autor));
+            } else if (opcao == 2) {
+                System.out.println("Digite o título ou autor para consultar:");
+                String item = scanner.nextLine();
+                Livro livro = servico.consultar(item);
+                if (livro != null) {
+                    System.out.println("Livro encontrado: " + livro.getTitulo() + " - " + livro.getAutor());
+                } else {
+                    System.out.println("Livro não encontrado.");
+                }
+            } else if (opcao == 3) {
+                System.out.println("Digite o título do livro para emprestar:");
+                String titulo = scanner.nextLine();
+                System.out.println("Digite o nome do emprestador:");
+                String nomeDoEmprestador = scanner.nextLine();
+                boolean sucesso = servico.emprestarLivro(titulo, nomeDoEmprestador);
+                if (sucesso) {
+                    System.out.println("Livro emprestado com sucesso.");
+                } else {
+                    System.out.println("Livro não disponível para empréstimo.");
+                }
+            } else if (opcao == 4) {
+                break;
             }
         }
-
-        scanner.close();
     }
-}

@@ -1,6 +1,7 @@
 package tech.ada.poo.base.servico.biblioteca.service;
 
 import tech.ada.poo.base.servico.biblioteca.model.ItemCatalogo;
+import tech.ada.poo.base.servico.biblioteca.model.Livro;
 
 public interface BibliotecaService {
 
@@ -9,3 +10,5 @@ public interface BibliotecaService {
     ItemCatalogo consultar(String titulo);
 
 }
+
+

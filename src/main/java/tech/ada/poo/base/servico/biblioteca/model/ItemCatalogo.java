@@ -7,6 +7,7 @@ public abstract class ItemCatalogo {
     private String titulo;
 
     private String reserva;
+    private String autor;
 
     @Override
     public String toString() {
@@ -50,5 +51,9 @@ public abstract class ItemCatalogo {
             return true;
 
         return false;
+    }
+
+    public String getAutor() {
+        return autor;
     }
 }
