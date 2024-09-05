@@ -1,5 +1,6 @@
 # Biblioteca
-
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![IntelliJ](https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white)
 ## Descrição
 
 Este é um projeto em desenvolvimento que simula uma biblioteca, permitindo o cadastro de livros, autores, e a gestão do estado dos livros, incluindo status como "emprestado", "em atraso" e "devolvido". O projeto está sendo desenvolvido como parte do curso B3 Inclua+ e Ada e utiliza as tecnologias Java.
